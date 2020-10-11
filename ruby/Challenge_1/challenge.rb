@@ -22,7 +22,11 @@ describe Challenge, ".first_letter_not_repeated" do
     expect(challenge.first_letter_not_repeated('sTreSS')).to eq('T')
   end
 
-  it "it returns empty string" do
+  it "it returns empty string if all letters repeat" do
     expect(challenge.first_letter_not_repeated('ssttrreess')).to eq('')
+  end
+
+  it "it returns empty for empty string" do
+    expect(challenge.first_letter_not_repeated('')).to eq('')
   end
 end
