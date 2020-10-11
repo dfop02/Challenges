@@ -1,22 +1,28 @@
 require "rspec/autorun"
 
 class Challenge
-  def first_string(string)
+  def first_letter_not_repeated(word)
     # Do the challenge here
   end
 end
 
 # Do not change here
-describe Challenge, ".first_string" do
+describe Challenge, ".first_letter_not_repeated" do
+  let(:challenge) { Challenge.new }
+
   it "it returns first letter that non repeat" do
-    expect('stress').to eq('t')
+    expect(challenge.first_letter_not_repeated('stress')).to eq('t')
+  end
+
+  it "it returns first letter with space around" do
+    expect(challenge.first_letter_not_repeated(' stress ')).to eq('t')
   end
 
   it "it returns first letter on case insensive" do
-    expect('sTreSS').to eq('T')
+    expect(challenge.first_letter_not_repeated('sTreSS')).to eq('T')
   end
 
   it "it returns empty string" do
-    expect('ssttrress').to eq('')
+    expect(challenge.first_letter_not_repeated('ssttrreess')).to eq('')
   end
 end
