@@ -3,6 +3,20 @@ require "rspec/autorun"
 class Challenge
   def convert_tag(word)
     # Do the challenge here
+    # Verificando conformidade com #
+    if word != ""
+      word.strip!  
+
+      if word.match(/^[#]{1,6}\s/) != nil
+          texto = word.match(/\w+/)[0] 
+          hirarquia = word.match(/^[#]{1,6}/)[0].length
+          return "<h#{hirarquia}>#{texto}</h#{hirarquia}>"
+      end
+      return "Wrong input"
+    
+    else
+      return ""  
+    end
   end
 end
 

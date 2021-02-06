@@ -2,8 +2,28 @@ require "rspec/autorun"
 
 class Challenge
   def first_letter_not_repeated(word)
-    # Do the challenge here
+    word.each_char do |letter|
+      return letter if word.downcase.count(letter.downcase) == 1
+    end
+    ''
+=begin
+    todos_elementos =   word.downcase.split("")
+    elementos_unicos = todos_elementos.uniq
+
+    elementos_unicos.each.with_index do |letra, index|
+      if letra != " "
+        if todos_elementos.count(letra) == 1
+          return word[todos_elementos.index(letra)]
+        end
+      end
+      
+      if index == elementos_unicos.length - 1
+        return ""
+      end    
+    end
+=end
   end
+
 end
 
 # Do not change here
